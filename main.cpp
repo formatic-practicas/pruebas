@@ -1,4 +1,6 @@
-
+/*
+ * Modificamos esto desde Qtcreator!
+ */
 #include <QtGui>
 #include <QtSql>
 static bool createConnection()
