@@ -15,6 +15,8 @@ import javax.swing.Action;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import java.awt.GridLayout;
 
 
 public class Ventana {
@@ -54,48 +56,65 @@ public class Ventana {
 		frame.setBounds(100, 100, 509, 358);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JButton btnHolaMundo = new JButton("Hola mundo");
-		btnHolaMundo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				textField.setText("Hola mundo");
-			}
-		});
+		JPanel panel_1 = new JPanel();
+		panel_1.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel = new JPanel();
+		panel_1.add(panel, BorderLayout.CENTER);
+		panel.setLayout(new GridLayout(0, 3, 0, 0));
+		
+		JButton btnHolaMundo = new JButton("1");
+		panel.add(btnHolaMundo);
+		
+		JButton button_3 = new JButton("4");
+		panel.add(button_3);
+		
+		JButton button_1 = new JButton("2");
+		panel.add(button_1);
+		
+		JButton button_2 = new JButton("3");
+		panel.add(button_2);
+		
+		JButton button_4 = new JButton("5");
+		panel.add(button_4);
+		
+		JButton button_5 = new JButton("6");
+		panel.add(button_5);
 		
 		textField = new JTextField();
+		panel_1.add(textField, BorderLayout.NORTH);
 		textField.setColumns(10);
-		
-		JToolBar toolBar = new JToolBar();
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(13)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 181, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(btnHolaMundo, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE))
-						.addComponent(toolBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(173, Short.MAX_VALUE))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(toolBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(21)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnHolaMundo, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE))
-					.addGap(30))
-		);
-		
-		JButton button = toolBar.add(action);
-		button.addActionListener(new ActionListener() {
+		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textField.setText("Accion realizada");
 			}
 		});
-		frame.getContentPane().setLayout(groupLayout);
+		button_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText(textField.getText()+"5");
+			}
+		});
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText()+"3");
+			}
+		});
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText()+"2");
+			}
+		});
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText()+"4");
+			}
+		});
+		btnHolaMundo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText()+"1");
+			}
+		});
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		frame.getContentPane().add(panel_1, BorderLayout.CENTER);
 		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
